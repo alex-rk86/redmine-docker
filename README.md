@@ -3,7 +3,9 @@
 Custom Redmine 4.2.3 docker image based on bitnami with Subversion support and additional plugins:
 
 https://github.com/Smile-SA/redmine_smile_togglesidebar
+
 https://github.com/anteo/redmine_custom_workflows
+
 https://github.com/jgraichen/redmine_dashboard
 
 ## Usage
@@ -11,26 +13,40 @@ https://github.com/jgraichen/redmine_dashboard
 Get Linux based host with docker support installed.
 
 For example, you can install minimum installation of Ubuntu 20.04 and run:
+
 $sudo apt install docker docker-compose git
+
 $sudo usermod -aG docker (your account)
 
 
 $mkdir ~/redmine-docker
+
 $cd ~/redmine-docker
+
 $git clone https://gitlab.rk86.com/alex/redmine-docker.git
+
 $cp docker-compose.yml.defaul docker-compose.yml
 
 Adjust docker-compose.yml, as very minimum set DB and Redmine admin passwords 
 
 $cd alex-redmine
+
 $./build
+
 $cd ..
+
 $./docker-redmine -start
 
 After a few minutes, open browser to http://(your ip)
 login with admin and password you specified in docker-compose.yml
 
+The default volumes are located in /var/lib/docker/volumes/redmine*
+
+"docker-redmine" - is a simple helper for start/stop/backup.
+
 ## Links
 https://hub.docker.com/r/bitnami/redmine/
+
 https://github.com/bitnami/bitnami-docker-redmine
+
 https://github.com/sameersbn/docker-redmine
