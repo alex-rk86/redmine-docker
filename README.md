@@ -1,6 +1,6 @@
 # Redmine Docker
 
-Custom Redmine 4.2.3 docker image based on bitnami with Subversion support and additional plugins:
+Custom Redmine 4.2.3 docker based on bitnami image, with Subversion support and additional plugins:
 
 https://github.com/Smile-SA/redmine_smile_togglesidebar
 
