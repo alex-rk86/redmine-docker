@@ -18,7 +18,6 @@ $sudo apt install docker docker-compose git
 
 $sudo usermod -aG docker (your account)
 
-
 $mkdir ~/redmine-docker
 
 $cd ~/redmine-docker
