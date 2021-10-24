@@ -26,7 +26,7 @@ $git clone https://gitlab.rk86.com/alex/redmine-docker.git
 
 $cp docker-compose.yml.defaul docker-compose.yml
 
-Adjust docker-compose.yml, as very minimum set DB and Redmine admin passwords 
+Adjust docker-compose.yml, at the very minimum set DB and Redmine admin passwords 
 
 $cd alex-redmine
 
