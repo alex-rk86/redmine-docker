@@ -2,14 +2,15 @@
 
 Custom Redmine 4.2.3 docker based on bitnami image, with Subversion support and additional plugins:
 
-https://github.com/Smile-SA/redmine_smile_togglesidebar\
-https://github.com/anteo/redmine_custom_workflows\
-https://github.com/jgraichen/redmine_dashboard\
+https://github.com/Smile-SA/redmine_smile_togglesidebar
+
+https://github.com/anteo/redmine_custom_workflows
+
+https://github.com/jgraichen/redmine_dashboard
 
 ## Usage
 
-Get Linux based host with docker support installed.
-
+Get Linux based host with docker support installed.\
 For example, you can install minimum installation of Ubuntu 20.04 server and run:
 
 ```
