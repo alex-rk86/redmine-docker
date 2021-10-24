@@ -1,0 +1,46 @@
+version: '2'
+services:
+  mariadb:
+    image: 'docker.io/bitnami/mariadb:10.3-debian-10'
+    environment:
+      #- ALLOW_EMPTY_PASSWORD=yes
+      - MARIADB_ROOT_PASSWORD=(your root password)
+      - MARIADB_DATABASE=bitnami_redmine
+      - MARIADB_USER=bn_redmine
+      - MARIADB_PASSWORD=(your password)
+    volumes:
+      - 'mariadb_data:/bitnami'
+    #ports:
+    #  - '3306:3306'
+  redmine:
+    #image: 'docker.io/bitnami/redmine:4-debian-10'
+    image: 'alex-redmine:01'
+    environment:
+      #- ALLOW_EMPTY_PASSWORD=yes
+      - REDMINE_DATABASE_NAME=bitnami_redmine
+      - REDMINE_DATABASE_USER=bn_redmine
+      - REDMINE_DATABASE_PASSWORD=(your password)
+      - REDMINE_USERNAME=admin
+      - REDMINE_PASSWORD=(your password)
+      - REDMINE_REST_API_ENABLED=1
+      - REDMINE_EMAIL=(your email)
+      - REDMINE_FIRST_NAME=Redmine
+      - REDMINE_LAST_NAME=Admin
+      #- REDMINE_SMTP_HOST=smtp.gmail.com
+      #- REDMINE_SMTP_PORT=587
+      #- REDMINE_SMTP_USER=your_email@gmail.com
+      #- REDMINE_SMTP_PASSWORD=(your_password)
+    #override the dns if docker has issue resolving, like host with static IP
+    #dns:
+    #  - 8.8.8.8
+    ports:
+      - '80:3000'
+    volumes:
+      - 'redmine_data:/bitnami'
+    depends_on:
+      - mariadb
+volumes:
+  mariadb_data:
+    driver: local
+  redmine_data:
+    driver: local

@@ -1,0 +1,65 @@
+#!/bin/bash
+red=`tput setaf 1`
+green=`tput setaf 2`
+cyan=`tput setaf 6`
+reset=`tput sgr0`
+docker_key_app="redmine-redmine"
+docker_key_db="redmine-mariadb"
+backup_path="/home/alex/Backup"
+backup_date=`date "+%Y%m%d_%H%M%S"`
+docker_image_app=`/usr/bin/docker ps | grep $docker_key_app | awk '{ print $2 }'`
+docker_container_app=`/usr/bin/docker ps | grep $docker_key_app | awk '{ print $1 }'`
+docker_image_db=`/usr/bin/docker ps | grep $docker_key_db | awk '{ print $2 }'`
+docker_container_db=`/usr/bin/docker ps | grep $docker_key_db | awk '{ print $1 }'`
+echo -e "${cyan}$0 helper, v.20210912 by alex@rk86.com\n---${reset}"
+cd `dirname $0`
+
+function show_usage {
+    echo -e "${cyan}Usage: `basename $0` -start -stop -backup -backup-image -restore-help${reset}\n"
+}
+
+if (($# < 1))
+then
+    show_usage
+fi
+for var in "$@"
+do
+    case "$var" in
+        -start)
+		echo -e "${green}Starting docker'...${reset}"
+		docker-compose up -d
+            ;;
+        -stop)
+		echo -e "${green}Stopping socker...${reset}"
+		docker-compose stop
+            ;;
+        -backup-image)
+	        docker_image_norm=$(basename -- $docker_image_app)
+	        backup_file="$backup_path"/"$backup_date"_"$docker_image_norm"_image.tar.gz
+		echo -e "${green}Saving docker image for '"$docker_image_app"' to '"$backup_file"'...${reset}"
+		docker save $docker_image_app | gzip > $backup_file
+	        docker_image_norm=$(basename -- $docker_image_db)
+	        backup_file="$backup_path"/"$backup_date"_"$docker_image_norm"_image.tar.gz
+		echo -e "${green}Saving docker image for '"$docker_image_db"' to '"$backup_file"'...${reset}"
+		docker save $docker_image_db | gzip > $backup_file
+            ;;
+        -backup)
+		echo -e "${green}Processing backup for image '"$docker_image_app"', container '"$docker_container_app"'...${reset}"
+		echo "TODO"
+		backup_file="$backup_path"/"$backup_date"_sql.gz
+		docker exec $docker_container_db sh -c 'exec mysqldump --default-character-set=utf8mb4 --single-transaction -u"$MARIADB_USER" -p"$MARIADB_PASSWORD" "$MARIADB_DATABASE"' | gzip > $backup_file
+		#backup_file="$backup_path"/"$backup_date"_data.tar.gz
+		#sudo tar -czf $backup_file /var/lib/docker/volumes/nextcloud_nextcloud_data/_data
+		#backup_file="$backup_path"/"$backup_date"_main.tar.gz
+		#tar -czf $backup_file .
+            ;;
+        -restore-help)
+		echo -e "${green}Restore instuctions:${reset}"
+		echo "TODO"
+            ;;
+        *)
+	echo -e "${red}Wrong parameter!${reset}"
+		show_usage
+	;;
+    esac
+done

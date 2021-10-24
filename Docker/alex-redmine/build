@@ -1,0 +1,2 @@
+docker build -f Dockerfile.Base -t alex-redmine-base:01 .
+docker build -t alex-redmine:01 .
