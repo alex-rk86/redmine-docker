@@ -8,7 +8,7 @@ https://github.com/jgraichen/redmine_dashboard
 
 ## Usage
 
-Get Linux based host with docker support installed.\
+Get Linux based host with docker support installed.  
 For example, you can install minimum installation of Ubuntu 20.04 server and run:
 
 ```
@@ -25,7 +25,7 @@ cd ..
 ./docker-redmine -start
 ```
 
-After a few minutes, open browser to http://(your_ip)\
+After a few minutes, open browser to http://(your_ip)  
 login with admin and password you specified in docker-compose.yml
 
 The default volumes are located in /var/lib/docker/volumes/redmine*
@@ -33,8 +33,6 @@ The default volumes are located in /var/lib/docker/volumes/redmine*
 "docker-redmine" - is a simple helper for start/stop/backup.
 
 ## Links
-https://hub.docker.com/r/bitnami/redmine/
-
-https://github.com/bitnami/bitnami-docker-redmine
-
+https://hub.docker.com/r/bitnami/redmine  
+https://github.com/bitnami/bitnami-docker-redmine  
 https://github.com/sameersbn/docker-redmine
