@@ -14,27 +14,19 @@ Get Linux based host with docker support installed.
 
 For example, you can install minimum installation of Ubuntu 20.04 server and run:
 
-$sudo apt install docker docker-compose git
-
-$sudo usermod -aG docker (your account)
-
-$mkdir ~/redmine-docker
-
-$cd ~/redmine-docker
-
+```
+sudo apt install docker docker-compose git
+sudo usermod -aG docker (your account)
+mkdir ~/redmine-docker
+cd ~/redmine-docker
 $git clone https://gitlab.rk86.com/alex/redmine-docker.git
-
 $cp docker-compose.yml.defaul docker-compose.yml
-
-Adjust docker-compose.yml, at the very minimum set DB and Redmine admin passwords 
-
-$cd alex-redmine
-
-$./build
-
-$cd ..
-
-$./docker-redmine -start
+# Adjust docker-compose.yml, at the very minimum set DB and Redmine admin passwords 
+cd alex-redmine
+./build
+cd ..
+./docker-redmine -start
+```
 
 After a few minutes, open browser to http://(your_ip)
 
