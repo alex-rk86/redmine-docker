@@ -36,7 +36,8 @@ $cd ..
 
 $./docker-redmine -start
 
-After a few minutes, open browser to http://(your ip)
+After a few minutes, open browser to http://(your_ip)
+
 login with admin and password you specified in docker-compose.yml
 
 The default volumes are located in /var/lib/docker/volumes/redmine*
