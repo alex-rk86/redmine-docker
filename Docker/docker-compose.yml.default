@@ -1,4 +1,4 @@
-version: '2'
+version: '3'
 services:
   mariadb:
     image: 'docker.io/bitnami/mariadb:10.3-debian-10'
@@ -42,5 +42,13 @@ services:
 volumes:
   mariadb_data:
     driver: local
+  #  driver_opts:
+  #    type: none
+  #    o: bind
+  #    device: /home/alex/Temp/redmine_redmine_data
   redmine_data:
     driver: local
+    # driver_opts:
+    #  type: none
+    #  o: bind
+    #  device: /home/alex/Temp/redmine_redmine_data
