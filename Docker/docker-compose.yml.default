@@ -51,4 +51,4 @@ volumes:
     # driver_opts:
     #  type: none
     #  o: bind
-    #  device: /home/alex/Temp/redmine_redmine_data
+    #  device: /home/alex/Temp/redmine_mariadb_data
