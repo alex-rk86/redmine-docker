@@ -9,6 +9,7 @@ RUN git clone https://github.com/Smile-SA/redmine_smile_togglesidebar.git
 RUN git clone https://github.com/anteo/redmine_custom_workflows.git
 #RUN git clone https://github.com/tkusukawa/redmine_work_time.git
 RUN git clone https://github.com/jgraichen/redmine_dashboard.git
+RUN git clone https://github.com/southbridgeio/redmine_2fa.git
 WORKDIR /opt/bitnami/redmine/
 #USER bitnami
 RUN bundle config unset deployment
