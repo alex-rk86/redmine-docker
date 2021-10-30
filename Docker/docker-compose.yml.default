@@ -41,14 +41,14 @@ services:
       - mariadb
 volumes:
   mariadb_data:
-    driver: local
-  #  driver_opts:
-  #    type: none
-  #    o: bind
-  #    device: /opt/redmine/redmine_mariadb
+    # driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /opt/redmine/redmine_mariadb
   redmine_data:
-    driver: local
-    # driver_opts:
-    #  type: none
-    #  o: bind
-    #  device: /opt/redmine/redmine_data
+    # driver: local
+    driver_opts:
+     type: none
+     o: bind
+     device: /opt/redmine/redmine_data
