@@ -5,6 +5,8 @@ Custom Redmine 4.2.3 docker based on bitnami image, with Subversion support and 
 https://github.com/Smile-SA/redmine_smile_togglesidebar  
 https://github.com/anteo/redmine_custom_workflows  
 https://github.com/jgraichen/redmine_dashboard
+https://github.com/jkraemer/stopwatch
+https://github.com/taqueci/redmine_local_avatars
 
 ## Usage
 
