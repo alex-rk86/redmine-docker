@@ -9,6 +9,7 @@ RUN git clone https://github.com/anteo/redmine_custom_workflows.git
 RUN git clone https://github.com/jgraichen/redmine_dashboard.git
 RUN git clone https://github.com/jkraemer/stopwatch.git
 RUN git clone https://github.com/taqueci/redmine_local_avatars.git
+# RUN git clone https://github.com/alphanodes/additionals.git
 # RUN git clone https://github.com/tkusukawa/redmine_work_time.git
 WORKDIR /opt/bitnami/redmine/
 # USER bitnami
