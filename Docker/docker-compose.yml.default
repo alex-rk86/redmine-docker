@@ -2,6 +2,7 @@ version: '3'
 services:
   mariadb:
     image: 'docker.io/bitnami/mariadb:10.3-debian-10'
+    restart: unless-stopped
     environment:
       #- ALLOW_EMPTY_PASSWORD=yes
       - MARIADB_ROOT_PASSWORD=(your root password)
@@ -15,6 +16,7 @@ services:
   redmine:
     #image: 'docker.io/bitnami/redmine:4-debian-10'
     image: 'alex-redmine:01'
+    restart: unless-stopped
     environment:
       #- ALLOW_EMPTY_PASSWORD=yes
       - REDMINE_DATABASE_NAME=bitnami_redmine
