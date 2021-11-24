@@ -61,7 +61,7 @@ do
 		echo "'$0 -start'"
 		echo "3. Restore db and content, like:"
 		echo "'gunzip -c *_sql.gz | docker exec -i $docker_container_db mysql -u bn_redmine -p(yourpassword) bitnami_redmine'"
-	echo "'$0 -stop'"
+		echo "'$0 -stop'"
 		echo "Copy content of *_data.tar.gz to /opt/redmine/redmine_data/redmine/files"
 		echo "'$0 -start'"
             ;;
