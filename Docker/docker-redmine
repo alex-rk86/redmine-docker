@@ -60,8 +60,8 @@ do
 		echo "2. Start docker with the docker-compose.yml from backup. Confirm the new environment is working."
 		echo "'$0 -start'"
 		echo "3. Restore db and content, like:"
-		echo "'gunzip < 20211024_105037_sql.gz | docker exec $docker_container_db sh -c 'exec mysql-u"$MARIADB_USER" -p"$MARIADB_PASSWORD" "$MARIADB_DATABASE"'"
-		echo "'$0 -stop'"
+		echo "'gunzip -c *_sql.gz | docker exec -i $docker_container_db mysql -u bn_redmine -p(yourpassword) bitnami_redmine'"
+	echo "'$0 -stop'"
 		echo "Copy content of *_data.tar.gz to /opt/redmine/redmine_data/redmine/files"
 		echo "'$0 -start'"
             ;;
