@@ -48,7 +48,7 @@ do
 		backup_file="$backup_path"/"$backup_date"_sql.gz
 		docker exec $docker_container_db sh -c 'exec mysqldump --default-character-set=utf8mb4 --single-transaction -u"$MARIADB_USER" -p"$MARIADB_PASSWORD" "$MARIADB_DATABASE"' | gzip > $backup_file
 		backup_file="$backup_path"/"$backup_date"_data.tar.gz
-		sudo tar -czf $backup_file /opt/redmine/redmine_data/redmine/files
+		tar -czf $backup_file /opt/redmine/redmine_data/redmine
 		backup_file="$backup_path"/"$backup_date"_main.tar.gz
 		tar -czf $backup_file .
             ;;
