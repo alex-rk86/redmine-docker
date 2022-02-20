@@ -1,0 +1,20 @@
+--- /opt/bitnami/redmine/app/models/query.rb	2022-02-19 23:18:07.207755655 +0000
++++ /opt/bitnami/redmine/app/models/query_.rb	2022-02-19 23:23:55.445313737 +0000
+@@ -1540,11 +1540,12 @@
+   end
+ 
+   def date_for_user_time_zone(y, m, d)
+-    if tz = User.current.time_zone
+-      tz.local y, m, d
+-    else
+-      Time.local y, m, d
+-    end
++    # https://www.redmine.org/issues/23189
++    # if tz = User.current.time_zone
++    #   tz.local y, m, d
++    # else
++    Time.local y, m, d
++    # end
+   end
+ 
+   # Returns a SQL clause for a date or datetime field.

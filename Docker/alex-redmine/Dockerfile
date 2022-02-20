@@ -1,5 +1,10 @@
-# v20211029 by alex@rk86.com
+# v20220219 by alex@rk86.com
 FROM alex-redmine-base:01
+# patches
+WORKDIR /tmp
+COPY files/patch_20220219.diff .
+RUN patch /opt/bitnami/redmine/app/models/query.rb patch_20220219.diff
+# end: patches
 WORKDIR /opt/bitnami/redmine/public
 COPY files/logo.png .
 WORKDIR /opt/bitnami/redmine/plugins
