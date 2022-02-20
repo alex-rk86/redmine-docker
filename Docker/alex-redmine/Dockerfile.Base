@@ -1,6 +1,7 @@
 # v20210129 by alex@rk86.com
 # https://github.com/Bitnami/bitnami-docker-redmine
-FROM docker.io/bitnami/redmine:4.2.3
+# for > r71 no passenger-config found
+FROM docker.io/bitnami/redmine:4.2.3-debian-10-r71
 #RUN apt-get update
 #RUN apt-get upgrade
 RUN install_packages iputils-ping net-tools telnet nano htop subversion mc build-essential libmariadb-dev libpq-dev pkg-config libmagickwand-dev
