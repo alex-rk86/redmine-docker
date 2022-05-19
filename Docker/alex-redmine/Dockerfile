@@ -18,6 +18,10 @@ RUN git clone https://github.com/taqueci/redmine_local_avatars.git
 # RUN git clone https://github.com/tkusukawa/redmine_work_time.git
 WORKDIR /opt/bitnami/redmine/
 # USER bitnami
+# rexml required for svn browse, not part of Ruby 3 as defaut
+RUN echo >> Gemfile
+RUN echo "gem 'rexml'" >> Gemfile
+# bundle deployment
 RUN bundle config unset deployment
 RUN bundle install --no-deployment
 # alexm:20210128, took me some time to figure out, https://github.com/danmunn/redmine_dmsf/issues/1094
