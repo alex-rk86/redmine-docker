@@ -1,18 +1,18 @@
-# v20220219 by alex@rk86.com
-FROM alex-redmine-base:01
+# v20220518 by alex@rk86.com
+FROM alex-redmine-base:501
 # patches
 WORKDIR /tmp
-COPY files/patch_20220219.diff .
-RUN patch /opt/bitnami/redmine/app/models/query.rb patch_20220219.diff
+COPY files/patch_20220518.diff .
+RUN patch /opt/bitnami/redmine/app/models/query.rb patch_20220518.diff
 # end: patches
 WORKDIR /opt/bitnami/redmine/public
 COPY files/logo.png .
 WORKDIR /opt/bitnami/redmine/plugins
 # Let's install the plugins to allow the environment to build their dependencies
-RUN git clone https://github.com/Smile-SA/redmine_smile_togglesidebar.git
+# RUN git clone https://github.com/Smile-SA/redmine_smile_togglesidebar.git - not compatible with redmine 5
 RUN git clone https://github.com/anteo/redmine_custom_workflows.git
 RUN git clone https://github.com/jgraichen/redmine_dashboard.git
-RUN git clone https://github.com/jkraemer/stopwatch.git
+# RUN git clone https://github.com/jkraemer/stopwatch.git
 RUN git clone https://github.com/taqueci/redmine_local_avatars.git
 # RUN git clone https://github.com/alphanodes/additionals.git
 # RUN git clone https://github.com/tkusukawa/redmine_work_time.git
