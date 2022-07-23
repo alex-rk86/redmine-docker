@@ -1,2 +1,2 @@
-docker build -f Dockerfile.Base -t alex-redmine-base:501 .
-docker build -t alex-redmine:501 .
+docker build -f Dockerfile.Base -t alex-redmine-base:502 .
+docker build -t alex-redmine:502 .

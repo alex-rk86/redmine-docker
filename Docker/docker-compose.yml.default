@@ -15,7 +15,7 @@ services:
     #  - '3306:3306'
   redmine:
     #image: 'docker.io/bitnami/redmine:4-debian-10'
-    image: 'alex-redmine:501'
+    image: 'alex-redmine:502'
     restart: unless-stopped
     environment:
       #- ALLOW_EMPTY_PASSWORD=yes

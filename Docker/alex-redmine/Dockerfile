@@ -1,9 +1,9 @@
 # v20220518 by alex@rk86.com
-FROM alex-redmine-base:501
+FROM alex-redmine-base:502
 # patches
 WORKDIR /tmp
-COPY files/patch_20220518.diff .
-RUN patch /opt/bitnami/redmine/app/models/query.rb patch_20220518.diff
+# COPY files/patch_20220518.diff .
+# RUN patch /opt/bitnami/redmine/app/models/query.rb patch_20220518.diff
 # end: patches
 WORKDIR /opt/bitnami/redmine/public
 COPY files/logo.png .
@@ -18,7 +18,7 @@ RUN git clone https://github.com/taqueci/redmine_local_avatars.git
 # RUN git clone https://github.com/tkusukawa/redmine_work_time.git
 WORKDIR /opt/bitnami/redmine/
 # USER bitnami
-# rexml required for svn browse, not part of Ruby 3 as defaut
+# rexml required for svn browse, not part of Ruby 3 as default
 RUN echo >> Gemfile
 RUN echo "gem 'rexml'" >> Gemfile
 # bundle deployment
