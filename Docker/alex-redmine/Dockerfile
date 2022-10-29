@@ -1,5 +1,5 @@
-# v20220518 by alex@rk86.com
-FROM alex-redmine-base:502
+# v20221028 by alex@rk86.com
+FROM alex-redmine-base:503
 # patches
 WORKDIR /tmp
 # COPY files/patch_20220518.diff .
@@ -9,16 +9,22 @@ WORKDIR /opt/bitnami/redmine/public
 COPY files/logo.png .
 WORKDIR /opt/bitnami/redmine/plugins
 # Let's install the plugins to allow the environment to build their dependencies
-# RUN git clone https://github.com/Smile-SA/redmine_smile_togglesidebar.git - not compatible with redmine 5
-RUN git clone https://github.com/anteo/redmine_custom_workflows.git
-RUN git clone https://github.com/jgraichen/redmine_dashboard.git
-# RUN git clone https://github.com/jkraemer/stopwatch.git
+# Use specific release (when exists) instead clone since it may be not compatible with the current env
+# RUN git clone https://github.com/anteo/redmine_custom_workflows.git
+RUN wget https://github.com/anteo/redmine_custom_workflows/archive/refs/tags/v2.0.5.tar.gz -O - | tar -xz
+RUN mv redmine_custom_workflows-2.0.5 redmine_custom_workflows
+# RUN git clone https://github.com/jgraichen/redmine_dashboard.git
+RUN wget https://github.com/jgraichen/redmine_dashboard/archive/refs/tags/v2.12.2.tar.gz -O - | tar -xz
+RUN mv redmine_dashboard-2.12.2 redmine_dashboard
 RUN git clone https://github.com/taqueci/redmine_local_avatars.git
+# RUN git clone https://github.com/jkraemer/stopwatch.git
+# RUN git clone https://github.com/Smile-SA/redmine_smile_togglesidebar.git - not compatible with redmine 5
 # RUN git clone https://github.com/alphanodes/additionals.git
 # RUN git clone https://github.com/tkusukawa/redmine_work_time.git
 WORKDIR /opt/bitnami/redmine/
 # USER bitnami
 # rexml required for svn browse, not part of Ruby 3 as default
+# RUN cat Gemfile
 RUN echo >> Gemfile
 RUN echo "gem 'rexml'" >> Gemfile
 # bundle deployment

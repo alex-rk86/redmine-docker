@@ -1,6 +1,6 @@
 # Redmine Docker
 
-Custom Redmine 5.0.2 docker based on bitnami image, with Subversion support and additional plugins:
+Custom Redmine 5.0.3 docker based on bitnami image, with Subversion support and additional plugins:
 
 https://github.com/anteo/redmine_custom_workflows  
 https://github.com/jgraichen/redmine_dashboard  
